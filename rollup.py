@@ -3,7 +3,7 @@ import copy
 from typing import Dict, List, Tuple
 import pandas as pd
 import requests
-
+import sys
 
 class Graph :
 
@@ -38,8 +38,7 @@ class Graph :
                 path.pop()
     
     
-def main():
-
+def main(fname):
     # read in the input json
     parts = requests.get('https://interviewbom.herokuapp.com/bom/').json()['data']
 
@@ -81,9 +80,10 @@ def main():
 
 
     df = pd.DataFrame(data=summary)
-    df.to_excel('dict1.xlsx', index=False)
+    df.to_excel(fname, index=False)
     #print(summary)
     #print(df)
 
 if __name__ == "__main__":
-    main()
+    args = sys.argv[1:]
+    main(args[0])
