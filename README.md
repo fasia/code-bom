@@ -2,7 +2,7 @@
 
 1. Install the requirements:
 
-'$ virtualenv venv'
+`$ virtualenv venv`
 
 '$ source venv/bin/activate'
 
